@@ -1,4 +1,5 @@
 ﻿using MapApplication.Interfaces;
+using MapApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MapApplication.Controllers
@@ -8,10 +9,12 @@ namespace MapApplication.Controllers
     public class PointController : ControllerBase
     {
         private readonly IPointService _pointService;
+        private readonly DbService _dbService;
 
-        public PointController(IPointService pointService)
+        public PointController(IPointService pointService, DbService dbService)
         {
             _pointService = pointService;
+            _dbService = dbService;
         }
 
         [HttpGet("{id}")]
@@ -31,7 +34,7 @@ namespace MapApplication.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdatePoint(long id, [FromBody] Point updatedPoint)
+        public IActionResult UpdatePoint(long id, Point updatedPoint)
         {
             var response = _pointService.Update(id, updatedPoint);
 
