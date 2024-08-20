@@ -48,4 +48,5 @@ namespace MapApplication.Controllers
             var response = _pointService.GetById(id);
             return StatusCode(response.StatusCode, response);
         }
+    }
 }
