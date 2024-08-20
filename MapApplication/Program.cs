@@ -1,5 +1,6 @@
 using MapApplication.Context;
 using MapApplication.Data.Abstract;
+using MapApplication.Data.Concrete;
 using MapApplication.Interfaces;
 using MapApplication.Repositories;
 using MapApplication.Services;
@@ -21,7 +22,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<EfPointService>();
-
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 var app = builder.Build();

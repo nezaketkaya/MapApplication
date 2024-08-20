@@ -3,6 +3,7 @@ using MapApplication.Data.Abstract;
 using MapApplication.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MapApplication.Data.Concrete
 {
@@ -31,7 +32,6 @@ namespace MapApplication.Data.Concrete
 
         public void Dispose()
         {
-          
             _context.Dispose();
             GC.SuppressFinalize(this);
 
@@ -45,17 +45,24 @@ namespace MapApplication.Data.Concrete
         public IGenericRepository<T> Repository<T>() where T : class
         {
             var type = typeof(T);
-            if (!_repositories.ContainsKey(type))
+            if (!_repositories.TryGetValue(type, out var repositoryInstance))
             {
-                var repositoryInstance = new GenericRepository<T>(_context);
-                _repositories.Add(type, repositoryInstance);
+                repositoryInstance = new GenericRepository<T>(_context);
+                _repositories[type] = repositoryInstance;
             }
-            return (IGenericRepository<T>)_repositories[type];
+            return (IGenericRepository<T>)repositoryInstance;
         }
+
 
         public void Rollback()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Rollback is not implemented. Use transactions if necessary.");
+
+            /* Rollback işlemi tanımlamak için DbContext sınıfının Transaction özelliğini kullanılabilir.
+            Ancak, SaveChanges yapılmadan önce bir hata oluşursa zaten veritabanında herhangi bir değişiklik yapılmamış olur.
+            Bu metodu NotImplementedException atacak şekilde bırakabiliriz, çünkü DbContext doğrudan rollback işlemi sunmaz. 
+            Eğer daha karmaşık bir transaction yönetimi gerekiyorsa,
+            DbContext.Database.BeginTransaction() ile manuel olarak transaction yönetimi yapılabilir. */
         }
     }
 }
