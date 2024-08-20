@@ -2,10 +2,10 @@
 {
     public class Point
     {
-        public long Id { get; set; }
-        public double PointX { get; set; }
-        public double PointY { get; set; }
-        public string Name { get; set; }
+        public long id { get; set; }
+        public double pointx { get; set; }
+        public double pointy { get; set; }
+        public string name { get; set; }
     }
 }
 
