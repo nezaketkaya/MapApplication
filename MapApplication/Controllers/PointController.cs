@@ -13,37 +13,37 @@ namespace MapApplication.Controllers
             _pointService = pointService;
         }
 
-        [HttpPost("addUOW")]
-        public IActionResult AddPointUOW(Point point)
+        [HttpPost]
+        public IActionResult AddPoint(Point point)
         {
             var response = _pointService.Add(point);
 
             return StatusCode(response.StatusCode, response);
         }
 
-        [HttpPut("updateUOW/{id}")]
-        public IActionResult UpdatePointUOW(long id, Point uppoint)
+        [HttpPut("{id}")]
+        public IActionResult UpdatePoint(long id, Point uppoint)
         {
             var response = _pointService.Update(id, uppoint);
             return StatusCode(response.StatusCode, response);
         }
 
-        [HttpDelete("deleteUOW/{id}")]
-        public IActionResult DeletePointUOW(int id)
+        [HttpDelete("{id}")]
+        public IActionResult DeletePoint(long id)
         {
             var response = _pointService.Delete(id);
             return StatusCode(response.StatusCode, response);
         }
 
-        [HttpGet("getAllUOW")]
-        public IActionResult GetAllPointUOW()
+        [HttpGet]
+        public IActionResult GetAllPoint()
         {
             var response = _pointService.GetAll();
             return StatusCode(response.StatusCode, response);
         }
 
-        [HttpGet("getByIdUOW/{id}")]
-        public IActionResult GetPointByIdUOW(int id)
+        [HttpGet("{id}")]
+        public IActionResult GetPointByIdUOW(long id)
         {
             var response = _pointService.GetById(id);
             return StatusCode(response.StatusCode, response);
