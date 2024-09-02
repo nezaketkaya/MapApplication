@@ -34,6 +34,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<PointService>();
+builder.Services.AddScoped<PolygonService>();
+builder.Services.AddScoped<LineStringService>();
 
 var app = builder.Build();
 

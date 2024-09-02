@@ -1,4 +1,5 @@
 ﻿using MapApplication.Data.Abstract;
+using MapApplication.Model;
 
 namespace MapApplication.Services
 {

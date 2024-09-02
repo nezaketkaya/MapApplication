@@ -1,4 +1,4 @@
-﻿namespace MapApplication
+﻿namespace MapApplication.Model
 {
     public class Response<T>
     {
@@ -22,7 +22,7 @@
         {
             return new Response<T>
             {
-                Value = default(T),
+                Value = default,
                 Succeeded = false,
                 Message = message,
                 StatusCode = statusCode

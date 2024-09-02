@@ -1,6 +1,7 @@
 ﻿using MapApplication.Context;
 using MapApplication.Data.Abstract;
 using MapApplication.Interfaces;
+using MapApplication.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace MapApplication.Repositories

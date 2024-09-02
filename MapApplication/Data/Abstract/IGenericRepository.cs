@@ -1,4 +1,6 @@
-﻿namespace MapApplication.Data.Abstract
+﻿using MapApplication.Model;
+
+namespace MapApplication.Data.Abstract
 {
     public interface IGenericRepository<T> where T : class
     {
