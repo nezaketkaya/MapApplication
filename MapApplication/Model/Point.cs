@@ -1,4 +1,4 @@
-﻿namespace MapApplication
+﻿namespace MapApplication.Model
 {
     public class Point
     {

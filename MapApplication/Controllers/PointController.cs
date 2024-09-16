@@ -1,4 +1,5 @@
-﻿using MapApplication.Services;
+﻿using MapApplication.Model;
+using MapApplication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MapApplication.Controllers
@@ -17,7 +18,6 @@ namespace MapApplication.Controllers
         public IActionResult AddPoint(Point point)
         {
             var response = _pointService.Add(point);
-
             return StatusCode(response.StatusCode, response);
         }
 

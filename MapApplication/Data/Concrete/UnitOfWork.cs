@@ -1,5 +1,6 @@
 ﻿using MapApplication.Context;
 using MapApplication.Data.Abstract;
+using MapApplication.Model;
 using MapApplication.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;

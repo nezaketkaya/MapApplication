@@ -1,4 +1,6 @@
-﻿namespace MapApplication.Interfaces
+﻿using MapApplication.Model;
+
+namespace MapApplication.Interfaces
 {
     public interface IPointService
     {
